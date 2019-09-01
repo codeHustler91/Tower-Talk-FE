@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>TinCan</title>    
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <h1 id='logo'>Tower Talk</h1>
+            <h2 id='user-log'>login/logout</h2>
+        </header>
+        <main>
+            <aside class='material-navigation'>
+                <ul id='materials'>
+                    <li>Module 1</li>
+                    <li>Module 2</li>
+                    <li>Module 3</li>
+                    <li>Module 4</li>
+                </ul>
+                <div id='curriculum'>
+                </div>
+                <pre id="outgoing"></pre>
+            </aside>
+            <div class='video-container'>
+                <video src='' class='video'></video>
+                <h3>Chat with your Instructor</h3>
+                <form>
+                    <textarea id="incoming" placeholder='type your message here'></textarea>
+                    <button type="submit">submit</button>
+                </form>
+                <h3>Take notes on the material</h3>
+                <form>
+                    <textarea id='student-notes' placeholder='type your notes here'></textarea>
+                    <button type="submit">submit</button>
+                </form>
+            </div>
+        </main>
+
+        <script src="./node_modules/simple-peer/simplepeer.min.js"></script>
+        <script src="app.js"></script>
+        <script src="videoStream.js"></script>
+        <script src="animations.js"></script>
+        <!-- <script src="dataExchange.js"></script> -->
+    </body>
+</html>
