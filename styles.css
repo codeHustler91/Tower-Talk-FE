@@ -26,7 +26,16 @@ h1 {
     font-family: 'Audiowide', cursive;
 }
 h3 {
-    margin-bottom: 0.25rem;
+    margin: 0.25rem 0 0.25rem 0;
+}
+p {
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: break-word;
+    box-shadow: inset 0 0 3px 1px;
+    background: #9FC2CC;
+    margin: 0.5rem 0 0.5rem 0;
+    padding: 0.5rem;
 }
 main {
     display: flex;
@@ -39,28 +48,37 @@ aside {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.video-container {
-    max-width: 65vw;
+    padding: 0 1rem 0 1rem;    
 }
 video {
     position: relative;
-    width: 50vw;
+    max-width: 60vw;
+    max-height: 55vh;
+    min-width: 42vw;
     background: #A4BAB7;
     box-shadow: 0 5px 4px 0 rgb(43, 43, 43);
 
 }
 form {
     padding: 1rem;
-    box-shadow: 0 5px 5px -2px rgb(43, 43, 43);
+    /* box-shadow: 0 5px 5px -2px rgb(43, 43, 43); */
     background: #007da3;
     border-radius: 0.25rem;
+    border: 2px solid  #007da3;
+}
+form:hover {
+    background: #009ccc;
+    box-shadow: 0 5px 5px -2px rgb(43, 43, 43);
+    /* transform: scale(1.1); */
 }
 ul {
     margin: 0;
-    padding: 0;
+    padding: 0.5rem;
     font-size: 1.5rem;
     min-width: 60%;
+    background: #A4BAB7;
+    border-radius: 0.25rem;
+    box-shadow: 0 5px 5px -2px rgb(43, 43, 43);
 }
 li {
     display: flex;
@@ -68,19 +86,40 @@ li {
     list-style-type: none;
     justify-content: center;
     margin: 0.5rem 0;
-    border-radius: 0.25rem;
-    background: #A4BAB7;
-    box-shadow: 0 5px 5px -2px rgb(43, 43, 43);
+    border-radius: 0.5rem 4rem 0.5rem 0.5rem;
+    border: 2px solid  #007da3;
+    background: #007da3;
     cursor: pointer;
 }
 li:hover {
-    background: #007da3;
+    background: #009ccc;
+    box-shadow: 0 5px 5px -2px rgb(43, 43, 43);
     /* transform: scale(1.1); */
 }
 .video-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: center; */
+    max-width: 65vw;
+    padding: 0 1rem 0 0;
+}
+.chat-log {
+    background: #A4BAB7;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 5px 5px -2px rgb(43, 43, 43);
+    margin: 1.25rem 0 0 0;
+    max-width: 40vh;
+}
+.notes {
+    background: #A4BAB7;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 5px 5px -2px rgb(43, 43, 43);
+    margin: 1.25rem 1rem 0 0;
+    max-width: 40vh;
 }
 #curriculum {
     width: 100%;
