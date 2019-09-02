@@ -61,7 +61,7 @@ video {
     position: relative;
     max-width: 60vw;
     max-height: 55vh;
-    /* min-width: 42vw; */
+    min-width: 42vw;
     background: #A4BAB7;
     box-shadow: 0 5px 4px 0 rgb(43, 43, 43);
 }
@@ -92,15 +92,12 @@ ul {
     margin: 0;
     padding: 0;
     font-size: 1rem;
-    /* min-width: 60%; */
-    /* background: #A4BAB7; */
-    /* box-shadow: 0 5px 5px -2px rgb(43, 43, 43); */
 }
 li {
     display: flex;
     position: relative;
     list-style-type: none;
-    justify-content: center;
+    /* justify-content: center; */
     margin: 0.5rem 0;
     border-radius: 0.5rem 4rem 0.5rem 0.5rem;
     border: 2px solid  #007da3;
@@ -226,11 +223,13 @@ select:focus {
 button {
     background-color: #9FC2CC;
     font-family: 'Roboto', sans-serif;
+    font-size: 0.75em;
     color: black;
     display: inline-block;
     padding: 0.35em 1.2em;
     border: 0.1em solid black;
-    margin: 0 0.3em 0.3em 0;
+    /* margin: 0 0.3em 0.3em 0; */
+    margin: 0 0 0 0;
     border-radius: 0.25em;
     box-sizing: border-box;
     text-decoration: none;
@@ -241,4 +240,5 @@ button {
 button:hover{
     color: #9FC2CC;
     background-color: black;
+    border-radius: 0.25em 2em 0.25em 0.25em;
 }
