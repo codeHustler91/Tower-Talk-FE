@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tower-talk"
+  },
+  "targets": {
+    "tower-talk": {
+      "hosting": {
+        "student-view": [
+          "tower-talk"
+        ]
+      }
+    }
+  }
+}
