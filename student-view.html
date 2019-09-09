@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Tower Talk - Student</title>    
+        <link rel="stylesheet" href="student-styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+        <script src= "https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.4/redux.min.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <h1 class='logo'>Tower Talk - Student</h1>
+            <a href='./index.html'><h2 id='user-log'>Logout</h2></a>
+        </header>
+        <main>
+            <aside>
+                <div class='tools'>
+                    <div class='materials'>
+                        <button id='curriculum-button'>Hide Curriculum</button>
+                        <ul class='curriculum-list'>
+                        </ul>
+                    </div>
+                    <aside>
+                        <div class='component'>
+                            <h3 id='name'>Welcome</h3>
+                        </div>
+                        <div class='component'>
+                            <h3>Elapsed Time: 0s</h3>
+                            <button>Start/Stop</button>
+                            <button>Reset</button>  
+                        </div>
+                        <div class='component'>
+                            <h3>Establish Connection:</h3>
+                            <select name='instructor' id='instructor-select'>
+                                <option>Choose Instructor</option>
+                                <option>Peter</option>
+                                <option>Nance</option>
+                                <option>Wilma</option>
+                                <option>Scoobs</option>
+                            </select>
+                            <button>Connect</button>
+                            <h3 id='instructor-name'>Instructor's Name:</h3>
+                        </div>
+                    </aside>
+                </div>
+                <div id='curriculum'></div>
+                <pre id="outgoing"></pre>
+            </aside>
+            <div class='video-container'>
+                <video src='' class='video'></video>
+                <div class='container'>
+                    <div class='notes'>
+                        <h3>Take Notes</h3>
+                        <p>notes go here, this is what happens when the text wraps onto multiple lines</p>
+                        <form>
+                            <textarea id='student-notes' placeholder='type your notes here'></textarea>
+                            <button type="submit">Add</button>
+                            <button type="submit">Edit</button>
+                        </form>
+                    </div>
+                    <div class='chat-log'>
+                        <h3>Chat Log</h3>
+                        <p>text goes here, this is what happens when the text wraps onto multiple lines</p>
+                        <form>
+                            <textarea id="incoming" placeholder='type your message here'></textarea>
+                            <button type="submit">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        
+        <script src="./node_modules/simple-peer/simplepeer.min.js"></script>
+        <!-- <script src="./node_modules/requirejs/require.js" data-main="./app"></script> -->
+        <script src="videoStream.js"></script>
+        <script src="animations.js"></script>
+
+        <script src="app.js"></script>
+        <!-- <script src="dataExchange.js"></script> -->
+    </body>
+</html>
