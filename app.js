@@ -9,6 +9,8 @@ const signInButton = document.querySelector('#sign-in')
 const registerButton = document.querySelector('#register')
 const instructorCheck = document.querySelector('#instructor-check')
 const name = document.querySelector('#name')
+const logout = document.querySelector('#user-log')
+const time = document.querySelector('#time')
 
 // const rootURL = 'http://localhost:5000/'
 const rootURL = 'https://tower-talk-database.herokuapp.com/'
@@ -77,6 +79,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 // THE WORKSHOP
 
 function saveToLocal(user) {
+    console.log('profile pre-save to session', getFromLocal('profile'))
     const profile = JSON.stringify(user)
     console.log('savetoLocal', profile)
     sessionStorage.setItem('profile', profile)
@@ -131,8 +134,41 @@ function fetchUser(user, isInstructor) {
         .then(response => response.json())
         .then(profile => linkToMain(profile[0], route))
 }
+//timer
+const start = document.querySelector('#start')
+const reset = document.querySelector('#reset')
+let seconds = 0
+// let interval = setInterval( () => {displaytime(), 1000})
+// const displaytime = () => {
+//     seconds++
+//     if (seconds < 60) {
+//         console.log('less than a minute')
+//         time.innerText = seconds + 's'
+//     } else if ( seconds > 60 && seconds < 3600 ) {
+//         time.innerText = ((seconds / 60).toFixed(2) + 'mins')
+//     } else if ( seconds >= 3600 ) {
+//         time.innerText = ((seconds / 3600).toFixed(2) + 'hours')
+//     } else return seconds
+// }
+// start.addEventListener('click', interval())
 
 // student-instructor views
+const instructorFeedbackText = document.querySelector('#instructor-feedback')
+const instructorFeedbackButton = document.querySelector('#instructor-feedback-button')
+function addMaterial(material){
+    fetch(rootURL + 'materials', {
+        method: 'POST',
+        body: JSON.stringify(material),
+        headers: { 'Content-Type': 'application/json' }
+    }).then(response => response.json())
+        // .then(response => send)
+}
+instructorFeedbackButton.addEventListener('click', addMaterial({
+        title: 'Aircraft Vocabulary', 
+        content: 'Fuselage - the ____ body of an aircraft. \nAileron - a hinged surface in the trailing edge of an airplane____, used to control lateral balance. \nRudder - a vertical airfoil pivoted from the horizontal stabilizer of an aircraft, for controlling movement around the ______ axis. \nThrust - the propulsive force of a jet or rocket _______. \nFlaps - a type of high-lift device used to ______ the lift of an aircraft wing at a given airspeed. \nDrag - a force of flight that pushes airplanes back, or acts against the direction of motion. Drag is important to an airplane because it causes a plane to _____ down.'
+    })
+)
+
 function addEventCurriculumButton(){
     curriculumButton.addEventListener('click', (event) => {
         if (curriculumButton.innerText === 'Hide Curriculum') {
@@ -163,6 +199,9 @@ function showMaterials() {
                 y:'50vh', 
                 rotation: 90 }, 0.1))
 }
+logout.addEventListener('click', event => {
+    saveToLocal('')
+})
 
 // login forms
 function linkToMain(user, route) {

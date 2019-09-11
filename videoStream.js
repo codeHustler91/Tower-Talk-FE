@@ -1,5 +1,31 @@
-// get video/voice stream
-navigator.getUserMedia({ video: false, audio: false }, gotMedia, () => {})
+const mediaSelect = document.querySelector('#media-select')
+let media = {
+  video: false,
+  audio: false
+}
+
+mediaSelect.addEventListener('change', (event) => {
+  const chosen = event.target.value
+  if (chosen === 'Video & Audio') {
+    console.log('AV')
+    media.video = true;
+    media.audio = true;
+  } else if (chosen === 'Video Only') {
+    console.log('Video only')
+    media.video = true;
+    media.audio = false;
+  } else if (chosen === 'Audio Only') {
+    console.log('Audio')
+    media.video = false;
+    media.audio = true;
+  } else { 
+    console.log('else')
+    media.video = false;
+    media.audio = false;
+  }
+  navigator.getUserMedia(media, gotMedia, () => {})
+}
+)
 
 function gotMedia (stream) {
     console.log('video', stream)
@@ -15,13 +41,13 @@ function gotMedia (stream) {
   })
 
   peer2.on('stream', stream => {
-    // got remote video stream, now let's show it in a video tag
     var video = document.querySelector('video')
 
     if ('srcObject' in video) {
       video.srcObject = stream
     } else {
-      video.src = window.URL.createObjectURL(stream) // for older browsers
+      console.log('older browser?')
+      // video.src = window.URL.createObjectURL(stream) // for older browsers
     }
 
     video.play()

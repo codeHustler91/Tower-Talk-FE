@@ -28,17 +28,24 @@
                             <h3 id='name'>Welcome</h3>
                         </div>
                         <div class='component'>
-                            <h3>Elapsed Time: 0s</h3>
-                            <button>Start/Stop</button>
-                            <button>Reset</button>  
+                            <h3>Elapsed Time - </h3><span id='time'>0s</span>
+                            <button id='start'>Start/Stop</button>
+                            <button id='reset'>Reset</button>  
                         </div>
                         <div class='component'>
-                            <h3>Establish Connection:</h3>
+                            <h3>Room:</h3>
                             <select id='room-select'>
                                 <option>Choose Room</option>
                                 <option>Chatroom1</option>
                                 <option>Chatroom2</option>
                                 <option>Chatroom3</option>
+                            </select>
+                            <h3>Connection Type:</h3>
+                            <select id='media-select'>
+                                <option>No Connection</option>
+                                <option>Video & Audio</option>
+                                <option>Video Only</option>
+                                <option>Audio Only</option>
                             </select>
                         </div>
                     </aside>
@@ -51,11 +58,21 @@
                 <div class='container'>
                     <div class='notes'>
                         <h3>Take Notes</h3>
-                        <p>notes go here, this is what happens when the text wraps onto multiple lines</p>
+                        <p></p>
                         <form>
                             <textarea id='student-notes' placeholder='type your notes here'></textarea>
                             <button type="submit">Add</button>
                             <button type="submit">Edit</button>
+                        </form>
+                    </div>
+                    <div class='notes'>
+                        <h3>Feedback for Instructor</h3>
+                        <form>
+                            <textarea id='instructor-feedback' placeholder='leave anonymous feedback for your teacher here...'></textarea>
+                            <select>
+                                <option id='feedback-select'>Choose Instructor</option>
+                            </select>
+                            <button id='instructor-feedback-button'>Add</button>
                         </form>
                     </div>
                     <div class='chat-log'>

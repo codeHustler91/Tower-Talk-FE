@@ -140,8 +140,8 @@ a {
     border-radius: 0.25rem;
     box-shadow: 0 5px 5px -2px rgb(43, 43, 43);
     margin: 1.25rem 0 0 0;
-    min-width: 25vw;
-    max-width: 30vh;
+    /* min-width: 25vw; */
+    max-width: 30%;
 }
 .notes {
     background: #A4BAB7;
@@ -149,8 +149,8 @@ a {
     border-radius: 0.25rem;
     box-shadow: 0 5px 5px -2px rgb(43, 43, 43);
     margin: 1.25rem 0.5rem 0 0;
-    min-width: 25vw;
-    max-width: 30vh;
+    max-width: 30%;
+    /* max-width: 25vw; */
 }
 #curriculum {
     width: 100%;
