@@ -4,7 +4,6 @@ TweenLite.from('#login-main', 0.75, { x:'-60vw', ease: Expo, scale: 0.25 })
 
 // header
 TweenLite.from('#logo', 3, { x:'90vw' })
-TweenLite.from('#user-log', 3, { opacity: 0, backgroundColor: 'white'})
 
 // video 
 TweenLite.fromTo('video', 2.5, {

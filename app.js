@@ -91,11 +91,9 @@ function displayStudentView() {
     const student = getFromLocal('profile')
     console.log('display student!', student)
     name.innerText = `Welcome ${student.name.toUpperCase()}`
-    const instructorSelect = document.querySelector('#instructor-select')
-    const instructor = document.querySelector('#instructor-name')
+    const roomSelect = document.querySelector('#room-select')
     loadMaterials()
     addEventCurriculumButton()
-    addEventSelect(instructorSelect, instructor, 'Instructor')
 }
 function displayInstructorView() {
     const instructor = getFromLocal('profile')
@@ -106,7 +104,6 @@ function displayInstructorView() {
     const noteName = document.querySelector('#student-note')
     loadMaterials()
     addEventCurriculumButton()
-    addEventSelect(studentSelect, student, 'Student', noteName)
 }
 
 // helper functions 
@@ -149,12 +146,7 @@ function addEventCurriculumButton(){
         }
     })
 }
-function addEventSelect(select, target, kind, target2) {
-    select.addEventListener('change', (event)=> {
-        target.innerText = `${kind}'s Name: ${event.target.value}`
-        target2.innerText = `Take Notes on ${event.target.value}`
-    })
-}
+
 function showMaterials() {
     const ul = document.querySelector('.curriculum-list')
     return store.getState().map(material => {

@@ -1,5 +1,5 @@
 // get video/voice stream
-navigator.getUserMedia({ video: true, audio: true }, gotMedia, () => {})
+navigator.getUserMedia({ video: false, audio: false }, gotMedia, () => {})
 
 function gotMedia (stream) {
     console.log('video', stream)

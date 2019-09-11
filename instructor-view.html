@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="instructor-styles.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
         <script src= "https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.4/redux.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
 
     </head>
     <body>
@@ -33,15 +34,12 @@
                         </div>
                         <div class='component'>
                             <h3>Establish Connection:</h3>
-                            <select name='student' id='student-select'>
-                                <option>Choose Student</option>
-                                <option>Peter</option>
-                                <option>Nance</option>
-                                <option>Wilma</option>
-                                <option>Scoobs</option>
+                            <select name='room' id='room-select'>
+                                <option>Choose Room</option>
+                                <option>Chatroom1</option>
+                                <option>Chatroom2</option>
+                                <option>Chatroom3</option>
                             </select>
-                            <button>Connect</button>
-                            <h3 id='student-name'>Student's Name:</h3>
                         </div>
                     </aside>
                 </div>
@@ -71,10 +69,11 @@
                     </div>
                     <div class='chat-log'>
                         <h3>Chat Log</h3>
-                        <p>text goes here, this is what happens when the text wraps onto multiple lines</p>
+                        <p id='chat-recieve'></p>
+                        <div id='feedback'></div>
                         <form>
-                            <textarea id="incoming" placeholder='type your message here'></textarea>
-                            <button type="submit">Send</button>
+                            <textarea id="chat-send-message" placeholder='type your message here'></textarea>
+                            <button id='chat-send-button' type="submit">Send</button>
                         </form>
                     </div>
                 </div>
@@ -88,6 +87,7 @@
         <script src="animations.js"></script>
 
         <script src="app.js"></script>
+        <script src="socket.js"></script>
         <!-- <script src="dataExchange.js"></script> -->
     </body>
 </html>
