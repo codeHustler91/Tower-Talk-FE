@@ -37,7 +37,7 @@ navigator.getUserMedia(media, function (stream) {
     document.querySelector('#outgoing').textContent = JSON.stringify(data)
   })
 
-  document.querySelector('#connection-button').addEventListener('click', () => {
+  document.querySelector('#connection-button').addEventListener('click', (event) => {
     event.preventDefault()
     let incoming = JSON.parse(document.querySelector('#incoming'.value))
     peer.signal(incoming)
