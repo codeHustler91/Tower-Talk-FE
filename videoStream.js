@@ -31,16 +31,15 @@ navigator.getUserMedia(media, function (stream) {
     trickle: false,
     stream: stream
   })
-  // var peer2 = new SimplePeer({ stream: stream})
+  // let peer2 = new SimplePeer({ stream: stream})
 
   peer.on('signal', data => {
-    document.querySelector('#outgoing').textContent = JSON.stringify(data)
+    document.querySelector('#yourId').value = JSON.stringify(data)
   })
 
-  document.querySelector('#connection-button').addEventListener('click', (event) => {
-    event.preventDefault()
-    let incoming = JSON.parse(document.querySelector('#incoming'.value))
-    peer.signal(incoming)
+  document.querySelector('#connect').addEventListener('click', () => {
+    let otherId = JSON.parse(document.querySelector('#otherId').value)
+    peer.signal(otherId)
   })
   peer.on('stream', function(stream){
     let video = document.querySelector('video')

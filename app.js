@@ -137,9 +137,9 @@ function loadStudentView(id) {
     fetch(instructors)
         .then(response => response.json())
         .then(displayInstructors)
-    fetch(studentNotesOnMaterials)
-        .then(response => response.json())
-        .then(console.log)
+    // fetch(studentNotesOnMaterials)
+    //     .then(response => response.json())
+    //     .then(console.log)
 }
 const instructorFeedbackSelect = document.querySelector('#instructor-feedback-select')
 function displayInstructors(instructors){
