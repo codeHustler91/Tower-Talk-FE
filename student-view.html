@@ -52,6 +52,10 @@
                 </div>
                 <div id='curriculum'></div>
                 <pre id="outgoing"></pre>
+                <form>
+                    <textarea id="incoming"></textarea>
+                    <button type="submit">submit</button>
+                </form>
             </aside>
             <div class='video-container'>
                 <video src='' class='video'></video>
@@ -69,10 +73,10 @@
                         <h3>Feedback for Instructor</h3>
                         <form>
                             <textarea id='instructor-feedback' placeholder='leave anonymous feedback for your teacher here...'></textarea>
-                            <select>
-                                <option id='feedback-select'>Choose Instructor</option>
+                            <select id='instructor-feedback-select'>
+                                <option>Choose Instructor</option>
                             </select>
-                            <button id='instructor-feedback-button'>Add</button>
+                            <button id='instructor-feedback-button'>Post</button>
                         </form>
                     </div>
                     <div class='chat-log'>
@@ -96,6 +100,6 @@
 
         <script src="app.js"></script>
         <script src="socket.js"></script>
-        <!-- <script src="dataExchange.js"></script> -->
+        <script src="dataExchange.js"></script>
     </body>
 </html>

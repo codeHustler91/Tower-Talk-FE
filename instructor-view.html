@@ -52,6 +52,10 @@
                 </div>
                 <div id='curriculum'></div>
                 <pre id="outgoing"></pre>
+                <form>
+                    <textarea id="incoming"></textarea>
+                    <button type="submit">submit</button>
+                </form>
             </aside>
             <div class='video-container'>
                 <video src='' class='video'></video>
@@ -66,12 +70,13 @@
                         </form>
                     </div>
                     <div class='notes'>
-                        <h3 id='student-note'>Take Notes on Student</h3>
-                        <p>notes go here, this is what happens when the text wraps onto multiple lines</p>
+                        <h3>Learning Strategies for Student</h3>
                         <form>
-                            <textarea id='student-notes' placeholder='student specific details here...'></textarea>
-                            <button type="submit">Add</button>
-                            <button type="submit">Edit</button>
+                            <textarea id='student-learning' placeholder='what can improve this students learning...'></textarea>
+                            <select id='student-learning-select'>
+                                <option>Choose Student</option>
+                            </select>
+                            <button id='student-learning-button'>Post</button>
                         </form>
                     </div>
                     <div class='chat-log'>
@@ -95,6 +100,6 @@
 
         <script src="app.js"></script>
         <script src="socket.js"></script>
-        <!-- <script src="dataExchange.js"></script> -->
+        <script src="dataExchange.js"></script>
     </body>
 </html>

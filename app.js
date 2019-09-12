@@ -12,8 +12,8 @@ const name = document.querySelector('#name')
 const logout = document.querySelector('#user-log')
 const time = document.querySelector('#time')
 
-// const rootURL = 'http://localhost:5000/'
-const rootURL = 'https://tower-talk-database.herokuapp.com/'
+const rootURL = 'http://localhost:5000/'
+// const rootURL = 'https://tower-talk-database.herokuapp.com/'
 
 // Redux 
 // const { combineReducers, createStore } = Redux
@@ -48,6 +48,7 @@ const materialsActionCreator = (materials) => {
         materials: materials
     })
 }
+
 // const noteActionCreator = (note) => {
 //     return store.dispatch( {
 //         type: 'CHANGE',
@@ -94,9 +95,10 @@ function displayStudentView() {
     const student = getFromLocal('profile')
     console.log('display student!', student)
     name.innerText = `Welcome ${student.name.toUpperCase()}`
-    const roomSelect = document.querySelector('#room-select')
+    // const roomSelect = document.querySelector('#room-select')
     loadMaterials()
     addEventCurriculumButton()
+    loadStudentView(student.id)
 }
 function displayInstructorView() {
     const instructor = getFromLocal('profile')
@@ -127,6 +129,28 @@ function loadMaterials() {
         .then(materialsActionCreator)
         .then(showMaterials)
 }
+function loadStudentView(id) {
+    // need two routes, get to /instructors, one for student notes on materials
+    console.log('load student view')
+    instructors = rootURL + `instructors`
+    studentNotesOnMaterials = rootURL + `studentNotesForStudent/${id}`
+    fetch(instructors)
+        .then(response => response.json())
+        .then(displayInstructors)
+    fetch(studentNotesOnMaterials)
+        .then(response => response.json())
+        .then(console.log)
+}
+const instructorFeedbackSelect = document.querySelector('#instructor-feedback-select')
+function displayInstructors(instructors){
+    console.log(instructors)
+    instructors.map(instructor => {
+        const option = document.createElement('option')
+        option.innerText = instructor.name
+        option.value = instructor.id
+        instructorFeedbackSelect.appendChild(option)
+    })
+}
 function fetchUser(user, isInstructor) {
     let route = ''
     isInstructor ? route = 'instructor' : route = 'student'
@@ -135,9 +159,9 @@ function fetchUser(user, isInstructor) {
         .then(profile => linkToMain(profile[0], route))
 }
 //timer
-const start = document.querySelector('#start')
-const reset = document.querySelector('#reset')
-let seconds = 0
+// const start = document.querySelector('#start')
+// const reset = document.querySelector('#reset')
+// let seconds = 0
 // let interval = setInterval( () => {displaytime(), 1000})
 // const displaytime = () => {
 //     seconds++
@@ -155,19 +179,21 @@ let seconds = 0
 // student-instructor views
 const instructorFeedbackText = document.querySelector('#instructor-feedback')
 const instructorFeedbackButton = document.querySelector('#instructor-feedback-button')
-function addMaterial(material){
-    fetch(rootURL + 'materials', {
-        method: 'POST',
-        body: JSON.stringify(material),
+function addInstructorFeedback(id){
+    const feedback = {feedback: instructorFeedbackText.innerText}
+    fetch(rootURL + `editInstructor/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(feedback),
         headers: { 'Content-Type': 'application/json' }
-    }).then(response => response.json())
-        // .then(response => send)
-}
-instructorFeedbackButton.addEventListener('click', addMaterial({
-        title: 'Aircraft Vocabulary', 
-        content: 'Fuselage - the ____ body of an aircraft. \nAileron - a hinged surface in the trailing edge of an airplane____, used to control lateral balance. \nRudder - a vertical airfoil pivoted from the horizontal stabilizer of an aircraft, for controlling movement around the ______ axis. \nThrust - the propulsive force of a jet or rocket _______. \nFlaps - a type of high-lift device used to ______ the lift of an aircraft wing at a given airspeed. \nDrag - a force of flight that pushes airplanes back, or acts against the direction of motion. Drag is important to an airplane because it causes a plane to _____ down.'
     })
-)
+    .then(response => response.json())
+}
+instructorFeedbackButton.addEventListener('click', event => {
+    event.preventDefault()
+    addInstructorFeedback(instructorFeedbackSelect.value)
+    console.log(instructorFeedbackSelect.value)
+    instructorFeedbackText.value = ''
+})
 
 function addEventCurriculumButton(){
     curriculumButton.addEventListener('click', (event) => {

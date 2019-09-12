@@ -158,7 +158,9 @@ a {
     border: 2px solid  #007da3;
     border-radius: 0.25rem;
     box-shadow: 0 5px 5px -2px rgb(43, 43, 43);
-    margin-top: 1rem;
+    margin-top: 0.75rem;
+    /* margin: 1rem; */
+    padding: 0.5rem;
     /* overflow: scroll; */
 }
 #feedback {
@@ -179,7 +181,7 @@ a {
     background: #9FC2CC;
     border-radius: 0.5rem;
     height: 80vh;
-    width: 80vh;
+    width: 80vw;
 }
 #outgoing {
     width: 600px;
