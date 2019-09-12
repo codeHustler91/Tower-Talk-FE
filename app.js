@@ -12,8 +12,8 @@ const name = document.querySelector('#name')
 const logout = document.querySelector('#user-log')
 const time = document.querySelector('#time')
 
-const rootURL = 'http://localhost:5000/'
-// const rootURL = 'https://tower-talk-database.herokuapp.com/'
+// const rootURL = 'http://localhost:5000/'
+const rootURL = 'https://tower-talk-database.herokuapp.com/'
 
 // Redux 
 // const { combineReducers, createStore } = Redux
