@@ -10,7 +10,7 @@ p.on('signal', data => {
     document.querySelector('#outgoing').textContent = JSON.stringify(data)
 })
 
-document.querySelector('form').addEventListener('submit', ev => {
+document.querySelector('#connection').addEventListener('submit', ev => {
     ev.preventDefault()
     p.signal(JSON.parse(document.querySelector('#incoming').value))
 })

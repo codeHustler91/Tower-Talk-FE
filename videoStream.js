@@ -23,33 +23,44 @@ mediaSelect.addEventListener('change', (event) => {
     media.video = false;
     media.audio = false;
   }
-  navigator.getUserMedia(media, gotMedia, () => {})
-}
-)
+  navigator.getUserMedia(media, gotMedia, function (err) {console.error(err)})
+})
 
 function gotMedia (stream) {
     console.log('video', stream)
-  var peer1 = new SimplePeer({ initiator: true, stream: stream })
-  var peer2 = new SimplePeer({ stream: stream})
+  let peer = new SimplePeer({ 
+    initiator: location.hash === '#init',
+    trickle: false,
+    stream: stream
+  })
+  // var peer2 = new SimplePeer({ stream: stream})
 
-  peer1.on('signal', data => {
-    peer2.signal(data)
+  peer.on('signal', data => {
+    document.querySelector('#outgoing').textContent = JSON.stringify(data)
   })
 
-  peer2.on('signal', data => {
-    peer1.signal(data)
+  document.querySelector('#connection-button').addEventListener('click', () => {
+    let incoming = JSON.parse(document.querySelector('#incoming'.value))
+    peer.signal(incoming)
   })
-
-  peer2.on('stream', stream => {
-    var video = document.querySelector('video')
-
-    if ('srcObject' in video) {
-      video.srcObject = stream
-    } else {
-      console.log('older browser?')
-      // video.src = window.URL.createObjectURL(stream) // for older browsers
-    }
-
+  peer.on('stream', function(stream){
+    let video = document.querySelector('video')
+    video.src = window.URL.createObjectURL(stream)
     video.play()
   })
 }
+
+
+  // peer2.on('signal', data => {
+  //   peer1.signal(data)
+  // })
+
+  // peer2.on('stream', stream => {
+  //   var video = document.querySelector('video')
+
+  //   if ('srcObject' in video) {
+  //     video.srcObject = stream
+  //   } else {
+  //     console.log('older browser?')
+  //     // video.src = window.URL.createObjectURL(stream) // for older browsers
+  //   }
