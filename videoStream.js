@@ -43,7 +43,12 @@ navigator.getUserMedia(media, function (stream) {
   })
   peer.on('stream', function(stream){
     let video = document.querySelector('video')
-    video.src = window.URL.createObjectURL(stream)
+    
+    if ('srcObject' in video) {
+      video.srcObject = stream
+    } else {
+      video.src = window.URL.createObjectURL(stream) // for older browsers
+    }
     video.play()
   })
 }, function (err) {
