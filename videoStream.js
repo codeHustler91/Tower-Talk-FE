@@ -1,7 +1,7 @@
 // const mediaSelect = document.querySelector('#media-select')
 let media = {
   video: true,
-  audio: false
+  audio: true
 }
 
 // mediaSelect.addEventListener('change', (event) => {
@@ -43,7 +43,7 @@ navigator.getUserMedia(media, function (stream) {
   })
   peer.on('stream', function(stream){
     let video = document.querySelector('video')
-    
+
     if ('srcObject' in video) {
       video.srcObject = stream
     } else {
