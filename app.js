@@ -136,21 +136,21 @@ function loadStudentView(id) {
     studentNotesOnMaterials = rootURL + `studentNotesForStudent/${id}`
     fetch(instructors)
         .then(response => response.json())
-        .then(displayInstructors)
+        // .then(displayInstructors)
     // fetch(studentNotesOnMaterials)
     //     .then(response => response.json())
     //     .then(console.log)
 }
-const instructorFeedbackSelect = document.querySelector('#instructor-feedback-select')
-function displayInstructors(instructors){
-    console.log(instructors)
-    instructors.map(instructor => {
-        const option = document.createElement('option')
-        option.innerText = instructor.name
-        option.value = instructor.id
-        instructorFeedbackSelect.appendChild(option)
-    })
-}
+// const instructorFeedbackSelect = document.querySelector('#instructor-feedback-select')
+// function displayInstructors(instructors){
+//     console.log(instructors)
+//     instructors.map(instructor => {
+//         const option = document.createElement('option')
+//         option.innerText = instructor.name
+//         option.value = instructor.id
+//         instructorFeedbackSelect.appendChild(option)
+//     })
+// }
 function fetchUser(user, isInstructor) {
     let route = ''
     isInstructor ? route = 'instructor' : route = 'student'
@@ -188,12 +188,12 @@ function addInstructorFeedback(id){
     })
     .then(response => response.json())
 }
-instructorFeedbackButton.addEventListener('click', event => {
-    event.preventDefault()
-    addInstructorFeedback(instructorFeedbackSelect.value)
-    console.log(instructorFeedbackSelect.value)
-    instructorFeedbackText.value = ''
-})
+// instructorFeedbackButton.addEventListener('click', event => {
+//     event.preventDefault()
+//     addInstructorFeedback(instructorFeedbackSelect.value)
+//     console.log(instructorFeedbackSelect.value)
+//     instructorFeedbackText.value = ''
+// })
 
 function addEventCurriculumButton(){
     curriculumButton.addEventListener('click', (event) => {

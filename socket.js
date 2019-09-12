@@ -9,10 +9,10 @@ const roomSelect = document.querySelector('#room-select')
 
 let room = 'abc123'
 
-roomSelect.addEventListener('change', event => {
-    room = event.target.value
-    console.log(room)
-})
+// roomSelect.addEventListener('change', event => {
+//     room = event.target.value
+//     console.log(room)
+// })
 
 chatSendButton.addEventListener('click', function(){
     event.preventDefault()
@@ -35,8 +35,10 @@ socket.on('connect', function(){
     socket.emit('room', room)
 })
 socket.on('chat', function(data){
-        feedback.innerText = ''
-    chatRecieve.innerText += `${data.name.toUpperCase()}: ${data.message}\n`
+    feedback.innerText = ''
+    const p = document.createElement('p')
+    p.innerText = `${data.name.toUpperCase()}: ${data.message}\n`
+    chatRecieve.appendChild(p)
 })
 socket.on('typing', function(data){
     feedback.innerText = `${data} is typing a message...`

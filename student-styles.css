@@ -43,6 +43,15 @@ p {
     margin: 0.5rem 0 0.5rem 0;
     padding: 0.5rem;
     border-radius: 0.25rem;
+    overflow: scroll;
+}
+.chat-log p {
+    border: 2px solid #007da3;
+    background: #9FC2CC;
+    margin: 0.5rem 0 0.5rem 0;
+    padding: 0.5rem;
+    overflow: scroll;
+    max-height: 50px;
 }
 main {
     display: flex;
@@ -202,6 +211,9 @@ textarea {
 .connection textarea {
     height: 50px;
     width: 100px;
+}
+#videoData {
+    max-height: 200px;
 }
 
 /* input {

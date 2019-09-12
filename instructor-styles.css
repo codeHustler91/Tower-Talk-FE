@@ -39,11 +39,19 @@ p {
     flex-direction: column;
     overflow-wrap: break-word;
     /* box-shadow: inset 0 0 3px 1px; */
+    border-top: 2px solid #007da3;
+    background: #9FC2CC;
+    margin: 0.5rem 0 0 0;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    overflow: scroll;
+}
+.chat-log p {
     border: 2px solid #007da3;
     background: #9FC2CC;
     margin: 0.5rem 0 0.5rem 0;
     padding: 0.5rem;
-    border-radius: 0.25rem;
+    overflow: scroll;
 }
 main {
     display: flex;
@@ -200,6 +208,9 @@ textarea {
 .connection textarea {
     height: 50px;
     width: 100px;
+}
+#videoData {
+    max-height: 200px;
 }
 
 /* input {

@@ -18,16 +18,16 @@
         <main>
             <aside>
                 <div class='tools'>
+                    <div class='component'>
+                        <h3 id='name'>Welcome</h3>
+                    </div>
                     <div class='materials'>
                         <button id='curriculum-button'>Hide Curriculum</button>
                         <ul class='curriculum-list'>
                         </ul>
                     </div>
                     <aside>
-                        <div class='component'>
-                            <h3 id='name'>Welcome</h3>
-                        </div>
-                        <div class='component'>
+                        <!-- <div class='component'>
                             <h3>Elapsed Time - </h3><span id='time'>0s</span>
                             <button id='start'>Start/Stop</button>
                             <button id='reset'>Reset</button>  
@@ -47,7 +47,7 @@
                                 <option>Video Only</option>
                                 <option>Audio Only</option>
                             </select>
-                        </div>
+                        </div> -->
                     </aside>
                 </div>
                 <div id='curriculum'></div>
@@ -55,7 +55,7 @@
             <div class='video-container'>
                 <video src='' class='video'></video>
                 <div class='container'>
-                    <div class='notes'>
+                    <!-- <div class='notes'>
                         <h3>Take Notes</h3>
                         <p></p>
                         <form>
@@ -63,8 +63,8 @@
                             <button type="submit">Add</button>
                             <button type="submit">Edit</button>
                         </form>
-                    </div>
-                    <div class='notes'>
+                    </div> -->
+                    <!-- <div class='notes'>
                         <h3>Feedback for Instructor</h3>
                         <form>
                             <textarea id='instructor-feedback' placeholder='leave anonymous feedback for your teacher here...'></textarea>
@@ -73,24 +73,24 @@
                             </select>
                             <button id='instructor-feedback-button'>Post</button>
                         </form>
-                    </div>
+                    </div> -->
                     <div class='chat-log'>
                         <h3>Chat Log</h3>
-                        <p id='chat-recieve'></p>
+                        <div id='chat-recieve'></div>
                         <div id='feedback'></div>
                         <form>
                             <textarea id="chat-send-message" placeholder='type your message here'></textarea>
                             <button id='chat-send-button' type="submit">Send</button>
                         </form>
                     </div>
+                    <div id=videoData class='connection'>
+                        <label>Your ID:</label><br/>
+                        <textarea id='yourId'></textarea><br/>
+                        <label>Other ID:</label><br/>
+                        <textarea id='otherId'></textarea><br/>
+                        <button id='connect'>Connect</button><br/>
+                    </div>
                 </div>
-            </div>
-            <div id=videoData class='connection'>
-                <label>Your ID:</label><br/>
-                <textarea id='yourId'></textarea><br/>
-                <label>Other ID:</label><br/>
-                <textarea id='otherId'></textarea><br/>
-                <button id='connect'>Connect</button><br/>
             </div>
         </main>
         
