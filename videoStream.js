@@ -40,6 +40,7 @@ function gotMedia (stream) {
   })
 
   document.querySelector('#connection-button').addEventListener('click', () => {
+    event.preventDefault()
     let incoming = JSON.parse(document.querySelector('#incoming'.value))
     peer.signal(incoming)
   })
