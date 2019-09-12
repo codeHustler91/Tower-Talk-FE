@@ -52,6 +52,7 @@ p {
     margin: 0.5rem 0 0.5rem 0;
     padding: 0.5rem;
     overflow: scroll;
+    max-height: 40px;
 }
 main {
     display: flex;
